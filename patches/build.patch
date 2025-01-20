@@ -1,0 +1,9 @@
+--- /dev/null	2025-01-23 09:00:33.016666662 +0100
++++ src/Makefile	2025-01-23 16:51:41.690829385 +0100
+@@ -0,0 +1,6 @@
++APP_DIR=chronyd
++
++override LDFLAGS += $(LDLIBS)
++export
++all:
++	$(MAKE) -C $(APP_DIR) -f Makefile.in chronyd

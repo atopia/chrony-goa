@@ -1,0 +1,13 @@
+genodelabs/src/gmp
+genodelabs/src/init
+genodelabs/src/libc
+genodelabs/src/nic_router
+genodelabs/src/posix
+genodelabs/src/stdcxx
+genodelabs/src/vfs
+genodelabs/src/vfs_jitterentropy
+genodelabs/src/vfs_lxip
+genodelabs/src/vfs_pipe
+genodelabs/src/gnutls
+genodelabs/src/nettle
+genodelabs/pkg/system_rtc-linux
