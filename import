@@ -2,7 +2,6 @@ LICENSE   := GPLv2
 VERSION   := 4.6.1
 DOWNLOADS := chrony.archive
 
-URL(chrony) := https://download.tuxfamily.org/chrony/chrony-$(VERSION).tar.gz
 URL(chrony) := https://chrony-project.org/releases/chrony-$(VERSION).tar.gz
 DIR(chrony) := src/chronyd
 SHA(chrony) := 571ff73fbf0ae3097f0604eca2e00b1d8bb2e91affe1a3494785ff21d6199c5c
