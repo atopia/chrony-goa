@@ -1,55 +1,15 @@
---- src/chronyd/Makefile.in.orig	2025-01-29 20:12:39.231147593 +0100
-+++ src/chronyd/Makefile.in	2025-01-29 20:12:35.134433901 +0100
-@@ -21,36 +21,33 @@
- #
- # Makefile template
- 
--SYSCONFDIR = @SYSCONFDIR@
--BINDIR = @BINDIR@
--SBINDIR = @SBINDIR@
--LOCALSTATEDIR = @LOCALSTATEDIR@
--CHRONYVARDIR = @CHRONYVARDIR@
-+SYSCONFDIR = /etc
-+BINDIR = /usr/local/bin
-+SBINDIR = /usr/local/sbin
-+LOCALSTATEDIR = /var
-+CHRONYVARDIR = /var/lib/chrony
- DESTDIR =
- 
--CC = @CC@
--CFLAGS = @CFLAGS@
--CPPFLAGS = @CPPFLAGS@
+--- src/chronyd/Makefile.in.orig	2025-03-17 19:07:38.112320126 +0100
++++ src/chronyd/Makefile.in	2025-03-17 19:07:30.927072755 +0100
+@@ -31,7 +31,7 @@ DESTDIR =
+ CC = @CC@
+ CFLAGS = @CFLAGS@
+ CPPFLAGS = @CPPFLAGS@
 -LDFLAGS = @LDFLAGS@
-+override LDFLAGS += $(LDLIBS)
++override LDFLAGS = @LDFLAGS@
  
--GETDATE_CFLAGS = @GETDATE_CFLAGS@
-+GETDATE_CFLAGS =
+ GETDATE_CFLAGS = @GETDATE_CFLAGS@
  
--EXTRA_OBJS = @EXTRA_OBJS@
-+EXTRA_OBJS = genode_stubs.o set_time_helper.o set_time_helper_c.o sys_timex.o sys_posix.o cmdmon.o manual.o pktlength.o ntp_auth.o ntp_core.o ntp_ext.o ntp_io.o ntp_sources.o addrfilt.o clientlog.o keys.o nameserv.o hash_nettle.o cmac_nettle.o nts_ke_server.o nts_ke_client.o nts_ntp_server.o nts_ntp_client.o siv_nettle.o hwclock.o nameserv_async.o nts_ke_session.o nts_ntp_auth.o
- 
- OBJS = array.o cmdparse.o conf.o leapdb.o local.o logging.o main.o memory.o quantiles.o \
-        reference.o regress.o rtc.o samplefilt.o sched.o socket.o sources.o sourcestats.o \
-        stubs.o smooth.o sys.o sys_null.o tempcomp.o util.o $(EXTRA_OBJS)
- 
--EXTRA_CLI_OBJS = @EXTRA_CLI_OBJS@
-+EXTRA_CLI_OBJS =  hash_intmd5.o
- 
- CLI_OBJS = array.o client.o cmdparse.o getdate.o memory.o nameserv.o \
-            pktlength.o socket.o util.o $(EXTRA_CLI_OBJS)
- 
- ALL_OBJS = $(OBJS) $(CLI_OBJS)
- 
--LIBS = @LIBS@
--EXTRA_LIBS = @EXTRA_LIBS@
--EXTRA_CLI_LIBS = @EXTRA_CLI_LIBS@
-+LIBS =   
-+EXTRA_LIBS = 
-+EXTRA_CLI_LIBS =  
- 
- # Until we have a main procedure we can link, just build object files
- # to test compilation
-@@ -141,3 +138,6 @@ Makefile : Makefile.in configure
+@@ -141,3 +141,6 @@ Makefile : Makefile.in configure
  ifndef NODEPS
  -include $(ALL_OBJS:%.o=.deps/%.d)
  endif
